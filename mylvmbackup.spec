@@ -1,15 +1,16 @@
 %include	/usr/lib/rpm/macros.perl
 Summary:	Utility for creating MySQL backups via LVM snapshots
+Summary(pl.UTF-8):	Narzędzie do tworzenia kopii zapasowych MySQL przy użyciu migawek LVM
 Name:		mylvmbackup
-Version:	0.11
+Version:	0.13
 Release:	1
 License:	GPL
 Group:		Applications/Databases
 Source0:	http://www.lenzg.net/mylvmbackup/%{name}-%{version}.tar.gz
-# Source0-md5:	ea3013320ea2f1718f19bc524eeff8a9
+# Source0-md5:	b5e51c2dab3af1d886cb22421f13fa38
 URL:		http://www.lenzg.org/mylvmbackup/
 BuildRequires:	rpm-perlprov >= 4.1-13
-Patch0:		%{name}.patch
+#Patch0: %{name}.patch
 Requires:	perl-DBD-mysql
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -23,9 +24,17 @@ unlocks the tables again. The snapshot process takes only a small
 amount of time. When it is done, the server can continue normal
 operations, while the actual file backup proceeds.
 
+%description -l pl.UTF-8
+mylvmbackup to narzędzie do szybkiego tworzenia kopii zapasowych baz
+MySQL. W celu wykonania kopii, mylvmbackup zakłada blokadę na
+wszystkich tabelach i zapisuje cache serwera, a następnie tworzy
+migawkę LVM woluminu zawierającego katalog data MySQL, po czym
+odblokowuje tabele. Proces tworzenia migawki trwa stosunkowo krótko.
+Gdy zostanie to wykonane, serwer może wznowić normalną pracę.
+
 %prep
 %setup -q
-%patch0 -p1
+#%patch0 -p1
 
 %install
 rm -rf $RPM_BUILD_ROOT
