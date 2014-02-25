@@ -2,16 +2,20 @@
 Summary:	Utility for creating MySQL backups via LVM snapshots
 Summary(pl.UTF-8):	Narzędzie do tworzenia kopii zapasowych MySQL przy użyciu migawek LVM
 Name:		mylvmbackup
-Version:	0.13
+Version:	0.15
 Release:	1
 License:	GPL
 Group:		Applications/Databases
 Source0:	http://www.lenzg.net/mylvmbackup/%{name}-%{version}.tar.gz
-# Source0-md5:	b5e51c2dab3af1d886cb22421f13fa38
+# Source0-md5:	57bfdc44bb34919386e68f0bfd95e5e6
 URL:		http://www.lenzg.org/mylvmbackup/
 BuildRequires:	rpm-perlprov >= 4.1-13
-#Patch0: %{name}.patch
-Requires:	perl-DBD-mysql
+Requires:	gzip
+Requires:	lvm2
+Requires:	perl-DBD-mysql >= 4.019
+Requires:	tar
+Suggests:	rsync
+Suggests:	zbackup
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -34,7 +38,6 @@ Gdy zostanie to wykonane, serwer może wznowić normalną pracę.
 
 %prep
 %setup -q
-#%patch0 -p1
 
 %install
 rm -rf $RPM_BUILD_ROOT
