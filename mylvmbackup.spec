@@ -1,4 +1,3 @@
-%include	/usr/lib/rpm/macros.perl
 Summary:	Utility for creating MySQL backups via LVM snapshots
 Summary(pl.UTF-8):	Narzędzie do tworzenia kopii zapasowych MySQL przy użyciu migawek LVM
 Name:		mylvmbackup
