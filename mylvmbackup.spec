@@ -2,7 +2,7 @@ Summary:	Utility for creating MySQL backups via LVM snapshots
 Summary(pl.UTF-8):	Narzędzie do tworzenia kopii zapasowych MySQL przy użyciu migawek LVM
 Name:		mylvmbackup
 Version:	0.15
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Databases
 Source0:	http://www.lenzg.net/mylvmbackup/%{name}-%{version}.tar.gz
